@@ -39,7 +39,7 @@ elasticsearch soft memlock unlimited
 elasticsearch hard memlock unlimited
 EOF
 
-cat <<'EOF' >>/etc/systemd/system/elasticsearch.service.d/override.conf
+cat <<'EOF' >>/usr/lib/systemd/system/elasticsearch.service
 [Service]
 LimitMEMLOCK=infinity
 EOF

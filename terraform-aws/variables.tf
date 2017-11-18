@@ -1,21 +1,24 @@
 ### MANDATORY ###
 variable "es_cluster" {
   description = "Name of the elasticsearch cluster, used in node discovery"
+  default = "elasticsearch-echo"
 }
 
 variable "aws_region" {
   type = "string"
+  default = "us-east-1"
 }
 
 variable "vpc_id" {
   description = "VPC ID to create the Elasticsearch cluster in"
   type = "string"
+  default = "vpc-46eefd23"
 }
 
 variable "availability_zones" {
   type = "list"
   description = "AWS region to launch servers; if not set the available zones will be detected automatically"
-  default = []
+  default = ["us-east-1a", "us-east-1b", "us-east-1c"]
 }
 
 variable "key_name" {
@@ -29,17 +32,17 @@ variable "environment" {
 
 variable "data_instance_type" {
   type = "string"
-  default = "c4.2xlarge"
+  default = "t2.medium"
 }
 
 variable "master_instance_type" {
   type = "string"
-  default = "m4.large"
+  default = "t2.medium"
 }
 
 variable "elasticsearch_volume_size" {
   type = "string"
-  default = "100" # gb
+  default = "20" # gb
 }
 
 variable "volume_name" {
@@ -61,24 +64,24 @@ variable "elasticsearch_logs_dir" {
 # default elasticsearch heap size
 variable "data_heap_size" {
   type = "string"
-  default = "7g"
+  default = "1g"
 }
 
 variable "master_heap_size" {
   type = "string"
-  default = "2g"
+  default = "1g"
 }
 
 variable "masters_count" {
-  default = "0"
+  default = "3"
 }
 
 variable "datas_count" {
-  default = "0"
+  default = "2"
 }
 
 variable "clients_count" {
-  default = "0"
+  default = "1"
 }
 
 # whether or not to enable x-pack security on the cluster
@@ -88,10 +91,10 @@ variable "security_enabled" {
 
 # client nodes have nginx installed on them, these credentials are used for basic auth
 variable "client_user" {
-  default = "exampleuser"
+  default = "echoxu"
 }
 variable "client_pwd" {
-  default = "changeme"
+  default = "2wsxXSW@"
 }
 
 # the ability to add additional existing security groups. In our case
