@@ -12,8 +12,6 @@ discovery.zen.minimum_master_nodes: ${minimum_master_nodes}
 network.host: _ec2:privateIpv4_,localhost
 
 plugin.mandatory: discovery-ec2
-cloud.aws.region: ${aws_region}
-cloud.aws.protocol: http # no need in HTTPS for internal AWS calls
 discovery:
     zen.hosts_provider: ec2
     ec2.groups: ${security_groups}
@@ -52,6 +50,7 @@ sudo sed -i "s/^-Xmx2g/-Xmx${heap_size}/" /etc/elasticsearch/jvm.options
 
 # Storage
 sudo mkdir -p ${elasticsearch_logs_dir}
+sudo chown -R elasticsearch:elasticsearch /usr/share/elasticsearch
 sudo chown -R elasticsearch:elasticsearch ${elasticsearch_logs_dir}
 
 # we are assuming volume is declared and attached when data_dir is passed to the script

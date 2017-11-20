@@ -54,7 +54,7 @@ variable "volume_encryption" {
 }
 
 variable "elasticsearch_data_dir" {
-  default = "/opt/elasticsearch/data"
+  default = "/usr/share/elasticsearch/data"
 }
 
 variable "elasticsearch_logs_dir" {

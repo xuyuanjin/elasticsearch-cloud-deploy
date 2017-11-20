@@ -15,7 +15,7 @@
       "run_tags": {
         "role": "packer"
       },
-      "source_ami": "ami-eea02294",
+      "source_ami": "ami-c740cfbd",
       "spot_price_auto_product": "Linux/UNIX (Amazon VPC)",
       "ssh_timeout": "10m",
       "ssh_username": "ubuntu",
