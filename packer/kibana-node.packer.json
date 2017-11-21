@@ -7,7 +7,7 @@
     {
       "type": "amazon-ebs",
 
-      "ami_name": "kibana5-{{isotime | clean_ami_name}}",
+      "ami_name": "kibana6-{{isotime | clean_ami_name}}",
       "availability_zone": "{{user `aws_az`}}",
       "iam_instance_profile": "packer",
       "instance_type": "t2.medium",
@@ -15,7 +15,7 @@
       "run_tags": {
         "role": "packer"
       },
-      "source_ami": "ami-c740cfbd",
+      "source_ami": "ami-9f2dffe7",
       "spot_price_auto_product": "Linux/UNIX (Amazon VPC)",
       "ssh_timeout": "10m",
       "ssh_username": "ubuntu",

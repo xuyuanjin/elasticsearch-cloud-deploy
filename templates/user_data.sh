@@ -16,6 +16,7 @@ discovery:
     zen.hosts_provider: ec2
     ec2.groups: ${security_groups}
     ec2.host_type: private_ip
+    ec2.endpoint: ec2.us-west-2.amazonaws.com
     ec2.tag.Cluster: ${es_environment}
     ec2.availability_zones: ${availability_zones}
 

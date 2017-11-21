@@ -6,19 +6,19 @@ variable "es_cluster" {
 
 variable "aws_region" {
   type = "string"
-  default = "us-east-1"
+  default = "us-west-2"
 }
 
 variable "vpc_id" {
   description = "VPC ID to create the Elasticsearch cluster in"
   type = "string"
-  default = "vpc-46eefd23"
+  default = "vpc-175bc572"
 }
 
 variable "availability_zones" {
   type = "list"
   description = "AWS region to launch servers; if not set the available zones will be detected automatically"
-  default = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  default = ["us-west-2a", "us-west-2b", "us-west-2c"]
 }
 
 variable "key_name" {
@@ -42,7 +42,7 @@ variable "master_instance_type" {
 
 variable "elasticsearch_volume_size" {
   type = "string"
-  default = "20" # gb
+  default = "100" # gb
 }
 
 variable "volume_name" {
@@ -73,11 +73,11 @@ variable "master_heap_size" {
 }
 
 variable "masters_count" {
-  default = "3"
+  default = "2"
 }
 
 variable "datas_count" {
-  default = "2"
+  default = "0"
 }
 
 variable "clients_count" {
@@ -91,10 +91,10 @@ variable "security_enabled" {
 
 # client nodes have nginx installed on them, these credentials are used for basic auth
 variable "client_user" {
-  default = "echoxu"
+  default = "evbguser"
 }
 variable "client_pwd" {
-  default = "2wsxXSW@"
+  default = "evbgpass"
 }
 
 # the ability to add additional existing security groups. In our case

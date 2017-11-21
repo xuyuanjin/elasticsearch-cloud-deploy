@@ -1,6 +1,6 @@
 {
-  "aws_region": "us-east-1",
-  "aws_az": "us-east-1d",
+  "aws_region": "us-west-2",
+  "aws_az": "us-west-2a",
   "aws_elasticsearch_ami": "",
 
   "azure_client_id": "",

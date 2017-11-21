@@ -34,6 +34,14 @@ resource "aws_security_group" "elasticsearch_security_group" {
     self              = true
   }
 
+  # allow data pipeline servers to access
+  ingress {
+    from_port         = 9200
+    to_port           = 9400
+    protocol          = "tcp"
+    cidr_blocks       = ["172.31.16.0/20"]
+  }
+
   # allow inter-cluster ping
   ingress {
     from_port         = 8
@@ -58,6 +66,13 @@ resource "aws_security_group" "elasticsearch_clients_security_group" {
   tags {
     Name = "${var.es_cluster}-kibana"
     cluster = "${var.es_cluster}"
+  }
+
+  ingress {
+    from_port         = 80
+    to_port           = 80
+    protocol          = "tcp"
+    cidr_blocks       = ["0.0.0.0/0"]
   }
 
   # allow HTTP access to client nodes via port 8080 - better to disable, and either way always password protect!
