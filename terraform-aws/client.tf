@@ -2,8 +2,8 @@ data "template_file" "client_userdata_script" {
   template = "${file("${path.root}/../templates/user_data.sh")}"
 
   vars {
-    volume_name             = ""
-    elasticsearch_data_dir  = ""
+    volume_name             = "${var.volume_name}"
+    elasticsearch_data_dir  = "${var.elasticsearch_data_dir}"
     elasticsearch_logs_dir  = "${var.elasticsearch_logs_dir}"
     heap_size               = "1g"
     es_cluster              = "${var.es_cluster}"
@@ -36,6 +36,12 @@ resource "aws_launch_configuration" "client" {
 
   lifecycle {
     create_before_destroy = true
+  }
+
+  ebs_block_device {
+    device_name = "${var.volume_name}"
+    volume_size = "${var.elasticsearch_volume_size}"
+    encrypted = "${var.volume_encryption}"
   }
 }
 

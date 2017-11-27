@@ -32,17 +32,17 @@ variable "environment" {
 
 variable "data_instance_type" {
   type = "string"
-  default = "t2.medium"
+  default = "m4.large"
 }
 
 variable "master_instance_type" {
   type = "string"
-  default = "t2.medium"
+  default = "m4.large"
 }
 
 variable "elasticsearch_volume_size" {
   type = "string"
-  default = "100" # gb
+  default = "200" # gb
 }
 
 variable "volume_name" {
@@ -69,7 +69,7 @@ variable "data_heap_size" {
 
 variable "master_heap_size" {
   type = "string"
-  default = "1g"
+  default = "4g"
 }
 
 variable "masters_count" {
